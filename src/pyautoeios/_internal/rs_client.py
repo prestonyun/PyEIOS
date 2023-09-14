@@ -17,7 +17,8 @@
 
 from typing import List
 
-from pyscreeze import Box, Point
+from pyscreeze import Point
+from src.pyautoeios._internal.geometry import Rectangle
 
 from src.pyautoeios._internal import hooks
 from src.pyautoeios._internal import static
@@ -181,11 +182,11 @@ class RSClient(RSType):
     def menu_height(self) -> int:
         return self.eios.get_int(None, hooks.CLIENT_MENUHEIGHT)
 
-    def menu_bounds(self) -> Box:
+    def menu_bounds(self) -> Rectangle:
         point = self.menu_location()
         width = self.menu_width()
         height = self.menu_height()
-        return Box(point.x, point.y, width, height)
+        return Rectangle(point.x, point.y, width, height)
 
     def is_menu_open(self) -> bool:
         return self.eios.get_bool(None, hooks.CLIENT_ISMENUOPEN)

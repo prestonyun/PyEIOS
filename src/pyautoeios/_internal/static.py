@@ -22,7 +22,7 @@ import math
 from typing import Tuple
 
 import pyautogui
-from pyscreeze import Box
+from src.pyautoeios._internal.geometry import Rectangle
 
 from src.pyautoeios._internal import hooks
 from src.pyautoeios._internal.rs_actor import base_x, base_y
@@ -105,22 +105,22 @@ def shl(x: int, y: int) -> int:
     return x << y
 
 
-def move_to_spot_in_box(box, **kwargs):
-    # print(f"box = {box}")
+def move_to_spot_in_Rectangle(Rectangle, **kwargs):
+    # print(f"Rectangle = {Rectangle}")
     if "duration" not in kwargs:
         kwargs["duration"] = random.uniform(0.3, 1.1)
     if "tween" not in kwargs:
         kwargs["tween"] = pyautogui.easeOutQuad
     #
-    cx, cy = pyautogui.center(box)
-    x = random.randint(int(-1 * (box.width / 3)), int(box.width / 3)) + cx
-    y = random.randint(int(-1 * (box.height / 3)), int(box.height / 3)) + cy
+    cx, cy = pyautogui.center(Rectangle)
+    x = random.randint(int(-1 * (Rectangle.width / 3)), int(Rectangle.width / 3)) + cx
+    y = random.randint(int(-1 * (Rectangle.height / 3)), int(Rectangle.height / 3)) + cy
     # print(f"x = {x}, y = {y}")
     pyautogui.moveTo(x, y, **kwargs)
 
 
-def click_on_spot_in_box(box, **kwargs):
-    move_to_spot_in_box(box, **kwargs)
+def click_on_spot_in_Rectangle(Rectangle, **kwargs):
+    move_to_spot_in_Rectangle(Rectangle, **kwargs)
     pyautogui.click(**kwargs)
 
 
@@ -130,8 +130,8 @@ def click_disconnected(eios: EIOS):
     left = (width // 2) - 67
     bottom = 317
     right = (width // 2) + 67
-    box = Box(left, top, right - left, bottom - top)
-    click_on_spot_in_box(box)
+    Rectangle = Rectangle(left, top, right - left, bottom - top)
+    click_on_spot_in_Rectangle(Rectangle)
 
 
 def click_existing_user(eios: EIOS):
@@ -140,8 +140,8 @@ def click_existing_user(eios: EIOS):
     left = (width // 2) + 12
     bottom = 307
     right = (width // 2) + 146
-    box = Box(left, top, right - left, bottom - top)
-    click_on_spot_in_box(box)
+    Rectangle = Rectangle(left, top, right - left, bottom - top)
+    click_on_spot_in_Rectangle(Rectangle)
 
 
 def click_email_prompt(eios: EIOS):
@@ -150,8 +150,8 @@ def click_email_prompt(eios: EIOS):
     left = (width // 2) - 110
     bottom = 254
     right = (width // 2) - 73
-    box = Box(left, top, right - left, bottom - top)
-    click_on_spot_in_box(box)
+    Rectangle = Rectangle(left, top, right - left, bottom - top)
+    click_on_spot_in_Rectangle(Rectangle)
 
 
 def click_password_prompt(eios: EIOS):
@@ -160,8 +160,8 @@ def click_password_prompt(eios: EIOS):
     left = (width // 2) - 108
     bottom = 267
     right = (width // 2) - 44
-    box = Box(left, top, right - left, bottom - top)
-    click_on_spot_in_box(box)
+    Rectangle = Rectangle(left, top, right - left, bottom - top)
+    click_on_spot_in_Rectangle(Rectangle)
 
 
 def click_login_button(eios: EIOS):
@@ -170,8 +170,8 @@ def click_login_button(eios: EIOS):
     left = (width // 2) - 148
     bottom = 337
     right = (width // 2) - 14
-    box = Box(left, top, right - left, bottom - top)
-    click_on_spot_in_box(box)
+    Rectangle = Rectangle(left, top, right - left, bottom - top)
+    click_on_spot_in_Rectangle(Rectangle)
 
 def click_click_to_play(eios: EIOS):
     width, _ = get_client_dimensions(eios)
@@ -179,20 +179,20 @@ def click_click_to_play(eios: EIOS):
     left = (width // 2) - 110
     bottom = 378
     right = (width // 2) + 110
-    box = Box(left, top, right - left, bottom - top)
-    click_on_spot_in_box(box)
+    Rectangle = Rectangle(left, top, right - left, bottom - top)
+    click_on_spot_in_Rectangle(Rectangle)
 
 
-def count_pixels(box: Box) -> dict:
+def count_pixels(Rectangle: Rectangle) -> dict:
     """
     Returns a count of pixels per a unique color
     Args:
-        box (BOX): the region of the screen to count all colors from
+        Rectangle (Rectangle): the region of the screen to count all colors from
     Returns:
         a key-value pairing of the rgb color value and the number of times the color was present in the image
     """
     color_count = {}
-    with pyautogui.screenshot(region=box) as image:
+    with pyautogui.screenshot(region=Rectangle) as image:
         width, height = image.size
         rgb_image = image.convert('RGB')
         # iterate through each pixel in the image and keep a count per unique color

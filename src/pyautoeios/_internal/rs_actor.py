@@ -103,5 +103,5 @@ class RSActor(RSType):
     def get_interacting(self):
         raise NotImplementedError
 
-    def in_box(self):
+    def in_Rectangle(self):
         raise NotImplementedError

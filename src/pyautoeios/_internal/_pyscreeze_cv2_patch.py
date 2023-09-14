@@ -67,6 +67,9 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 # pylint: disable=invalid-name
 # pylint: disable=undefined-variable
 
+from pyautogui import ImageNotFoundException
+
+
 try:
     import cv2
     import numpy
@@ -239,4 +242,4 @@ def _locateAll_opencv(
     matchx = matches[1] * step + region[0]  # vectorized
     matchy = matches[0] * step + region[1]
     for x, y in zip(matchx, matchy):
-        yield Box(x, y, needleWidth, needleHeight)
+        yield Rectangle(x, y, needleWidth, needleHeight)

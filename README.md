@@ -42,7 +42,7 @@ for client in pyauto.clients:
 - [x] Pip install dependancies for you (*needs more testing.* compare your versions to [Pipfile](/Pipfile))
 - [x] Wraps well liked [pyautogui](https://github.com/asweigart/pyautogui/) interface
 - [x] Transparent Image finding *when opencv is installed*
-- [x] Injecting into multiple clients (so threads can be used for multi-boxing)
+- [x] Injecting into multiple clients (so threads can be used for multi-Rectangleing)
 - [x] no *known* memory leaks.
 - [x] pytest for unit testing
 - [x] login methods

@@ -21,7 +21,8 @@
 from __future__ import annotations
 from typing import List, TypeVar
 
-from pyscreeze import Box, Point
+from pyscreeze import Point
+from src.pyautoeios._internal.geometry import Rectangle
 
 from src.pyautoeios._internal import hooks
 from src.pyautoeios._internal import static
@@ -171,7 +172,7 @@ class RSWidget(RSType):
     def absolute_location(self) -> Point:
         raise NotImplementedError
 
-    def bounds(self) -> Box:
+    def bounds(self) -> Rectangle:
         raise NotImplementedError
 
     def get(self, container_index: int, parent: int, child: int = -1) -> RSWidget:

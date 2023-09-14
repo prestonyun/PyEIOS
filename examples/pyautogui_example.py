@@ -17,16 +17,16 @@
 
 import random
 import getpass
-from pyscreeze import Box
+from src.pyautoeios._internal.geometry import Rectangle
 import src.pyautoeios as pyauto
 
 
 pyauto.inject_clients()
 for client in pyauto.clients:
     pyauto.pair_client(client)
-    pyauto.static.move_to_spot_in_box(Box(left=398, top=271, width=148, height=40))
-    pyauto.static.click_on_spot_in_box(Box(left=285, top=248, width=235, height=15))
+    pyauto.static.move_to_spot_in_Rectangle(Rectangle(left=398, top=271, width=148, height=40))
+    pyauto.static.click_on_spot_in_Rectangle(Rectangle(left=285, top=248, width=235, height=15))
     pyauto.typewrite(getpass.getpass(), interval=0.7)
     im = pyauto.screenshot()
     im.show()
-    pyauto.static.click_on_spot_in_box(Box(left=238, top=301, width=148, height=41))
+    pyauto.static.click_on_spot_in_Rectangle(Rectangle(left=238, top=301, width=148, height=41))
