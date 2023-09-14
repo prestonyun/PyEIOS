@@ -20,7 +20,7 @@ Here is a simple login example:
 
 ```python
 import getpass
-import pyautoeios as pyauto
+import src.pyautoeios as pyauto
 
 pyauto.inject_clients()
 for client in pyauto.clients:

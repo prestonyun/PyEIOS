@@ -16,7 +16,7 @@
 #    along with pyautoeios.  If not, see <https://www.gnu.org/licenses/>.
 
 import os
-import pyautoeios as pyauto
+import src.pyautoeios as pyauto
 
 pyauto.pyscreeze.USE_IMAGE_NOT_FOUND_EXCEPTION = True
 

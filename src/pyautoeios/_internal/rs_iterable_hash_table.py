@@ -65,19 +65,20 @@ class RSIterableHashTable(RSType):
     def get_object(self, oid: int) -> RSNode:
         index = oid & (self.size() - 1)
         head = self.bucket(index)
-        # print(f"{index = }, {head = } , {head.uid() = }")
+        print("index: ", index)
+        print("size: ", self.size())
         if not head.ref:
+            print("get_object: head.ref is None")
             return None
 
         current = head.next()
-        # print(f"{current = }, {current.uid() = }")
-        if not current.ref:
-            return None
-
-        current_uid = None
-        current_uid = current.uid()
-        if current_uid in (0, -1):
-            return None
-        if current_uid == oid:
-            return current
-        current = current.next()
+        head_uid = head.uid()
+        print(head_uid)
+        print(current.ref, current.uid())
+        while current.ref and current.uid() != head_uid:
+            current_uid = current.uid()
+            if current_uid == oid:
+                return current
+            elif current_uid == -1:
+                break
+            current = current.next()

@@ -23,6 +23,7 @@ from src.pyautoeios._internal.rs_structures import RSType
 
 class RSCache(RSType):
     def hash_table(self) -> RSIterableHashTable:
+        print(f"{self.ref}")
         _ref = self.eios.get_object(self.ref, hooks.CACHE_HASHTABLE)
         return RSIterableHashTable(self.eios, _ref)
 

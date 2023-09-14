@@ -45,15 +45,18 @@ class RSPlayerDefinition(RSType):
         )
 
     def model_cache(self) -> RSCache:
-        _ref = self.eios.get_object(None, hooks.PLAYERDEFINITION_MODELCACHE)
+        _ref = self.eios.get_object(self.ref, hooks.PLAYERDEFINITION_MODELCACHE)
         return RSCache(eios=self.eios, ref=_ref)
 
     def cached_model(self) -> RSModel:
         cache = self.model_cache()
         if not self.ref or not cache.ref:
+            print("cached_model: self.ref or cache.ref is None")
             return None
+        
         model_id = self.animated_model_id()
         node = cache.hash_table().get_object(model_id)
+        print(node)
         return RSModel(eios=self.eios, ref=node.ref)
 
     def get_model(

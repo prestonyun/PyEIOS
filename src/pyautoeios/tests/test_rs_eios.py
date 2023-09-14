@@ -18,7 +18,7 @@
 """Test pyautoeios.eios module."""
 import os
 
-import pyautoeios as pyauto
+import src.pyautoeios as pyauto
 from src.pyautoeios.hexcodes import VK_ESC, VK_LBUTTON
 
 # pylint: disable=protected-access, missing-function-docstring

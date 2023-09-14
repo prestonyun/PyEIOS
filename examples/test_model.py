@@ -18,7 +18,7 @@
 # import ctypes
 from src.pyautoeios._internal import hooks
 
-import pyautoeios as pyauto
+import src.pyautoeios as pyauto
 from src.pyautoeios._internal.rs_model import RSModel
 
 
@@ -33,17 +33,19 @@ with pyauto.clients.pop(0) as client:
     pyauto.pair_client(client)
     local_player = pyauto.static.me(client)
     definition = local_player.definition()
-    # Cache = definition.model_cache()
-    # HashTable = Cache.hash_table()
-    # ModelID = definition.animated_model_id()
-    # model.ref = HashTable.GetObject(ModelID).ref
-    # print("local_player = ", local_player)
-    # print("definition = ", definition)
-    # print("Cache = ", Cache)
-    # print("HashTable = ", HashTable)
-    # print("ModelID = ", ModelID)
-    # node = HashTable.get_object(ModelID)
-    # print("node = ", node)
-    # model = RSModel(node.eios, node.ref)
-    # print("model = ", model)
-    print(f"{definition.cached_model().raw_vertices() = }")
+    Cache = definition.model_cache()
+    HashTable = Cache.hash_table()
+    ModelID = definition.animated_model_id()
+
+    print("local_player = ", local_player)
+    print("definition = ", definition)
+    print("Cache = ", Cache)
+    print("HashTable = ", HashTable)
+    print("ModelID = ", ModelID)
+    node = HashTable.get_object(ModelID)
+    print("node = ", node)
+    model = RSModel(node.eios, node.ref)
+    model.ref = HashTable.GetObject(ModelID).ref
+    print("model = ", model)
+    print(definition.ref)
+    print(f"bounds: {definition.cached_model().bounds()}")

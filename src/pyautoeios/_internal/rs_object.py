@@ -92,10 +92,11 @@ class RSObject(RSType):
         TODO
         might need to un-hard-code this from 32, to be architecture agnostic
         the pascal code is
-           Result := (self.Hash shr 17) and $FFFFFFFF;
+        Result := (self.Hash shr 17) and $FFFFFFFF;
         and $FFFFFFFF might vary by the architecture (32 vs 64 bit)
         """
-        raise static.shr(self.hash(), 17) & (2 ** 32 - 1)
+        return self.hash() >> 17 & 0xFFFFFFFF
+
 
     def local_tile(self) -> RSTile:
         x = self.eios.get_int(self.ref, self.x_hooks[self.object_type])

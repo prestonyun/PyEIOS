@@ -4,7 +4,7 @@ from getpass import getpass
 
 import pytest
 
-import pyautoeios as pyauto
+import src.pyautoeios as pyauto
 
 EIOS = pyauto.eios.EIOS
 
@@ -58,7 +58,7 @@ def client() -> EIOS:
 
 # import importlib
 # pyauto = importlib.reload(pyauto)
-# import pyautoeios as pyauto
+# import src.pyautoeios as pyauto
 # from src.pyautoeios import pyauto
 # from src.pyautoeios.eios import EIOS
 # _client = EIOS()

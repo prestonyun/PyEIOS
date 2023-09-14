@@ -16,14 +16,14 @@
 #    along with pyautoeios.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import pyautoeios as pyauto
+import src.pyautoeios as pyauto
 from src.pyautoeios._internal.rs_client import RSClient
 from src.pyautoeios._internal import hooks
 from src.pyautoeios._internal.rs_structures import RSObjectArray
 from src.pyautoeios._internal.rs_npc import RSNPC
 
-import pyautoeios as pyauto
-from src.pyautoeios._internal.rs_player import me
+import src.pyautoeios as pyauto
+from src.pyautoeios._internal.static import me
 
 pyauto.inject_clients()
 client = pyauto.clients[0]

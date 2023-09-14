@@ -18,7 +18,7 @@
 # import ctypes
 # from src.pyautoeios._internal import hooks
 
-import pyautoeios as pyauto
+import src.pyautoeios as pyauto
 # from src.pyautoeios._internal.rs_client import RSClient
 
 pyauto.inject_clients()

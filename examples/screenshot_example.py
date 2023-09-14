@@ -15,7 +15,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with pyautoeios.  If not, see <https://www.gnu.org/licenses/>.
 
-import pyautoeios as pyauto
+import src.pyautoeios as pyauto
 
 pyauto.inject_clients()
 for client in pyauto.clients:

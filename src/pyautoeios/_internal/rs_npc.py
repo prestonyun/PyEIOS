@@ -15,7 +15,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with pyautoeios.  If not, see <https://www.gnu.org/licenses/>.
 
-from typing import List
+from typing import List, Optional
 
 from pyscreeze import Point
 
@@ -42,5 +42,50 @@ class RSNPC(RSActor):
     def animated_model(self) -> RSAnimatedModel:
         raise NotImplementedError
 
+    def transformed_definition(self) -> Optional[RSNPCDefinition]:
+        definition = self.definition()
+        if not definition.ref:
+            return None
+
+        bit = -1
+        transform_id = definition.transform_varbit()
+
+        if transform_id != -1:
+            bit = self.eios.client.get_varbit(transform_id)
+        else:
+            bit = self.eios.varps.varp_main(definition.transform_varp())
+
+        transformations = definition.transformations()
+        if 0 <= bit < len(transformations) - 1:
+            definition_id = transformations[bit]
+        elif transformations:
+            definition_id = transformations[-1]
+
+        if definition_id != -1:
+            return RSNPCDefinition.definition_cache(self.eios, definition_id)
+
+        return definition
+
+    def model(self) -> Optional[RSModel]:
+        definition = self.transformed_definition()
+        if not definition:
+            return None
+        return definition.cached_model()
+
+    def animated_model(self) -> Optional[RSAnimatedModel]:
+        model = self.model()
+        if not model:
+            return None
+
+        # ... [You'll need to fill in the logic for retrieving the animation sequences and transforming the model]
+
+        #return RSNPCDefinition.get_model(self.eios, model, idle_sequence, animation_frame, movement_sequence, movement_frame)
+
     def to_tpa(self) -> List[Point]:
-        raise NotImplementedError
+        obj_model = self.model()
+        obj_tile = self.local_tile()
+        triangles = obj_model.project(obj_tile.x, obj_tile.y, obj_tile.get_height(), 0)
+        points = []
+        for triangle in triangles:
+            points.extend([triangle.a, triangle.b, triangle.c])
+        return points

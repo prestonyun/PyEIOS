@@ -18,7 +18,7 @@
 import random
 import getpass
 from pyscreeze import Box
-import pyautoeios as pyauto
+import src.pyautoeios as pyauto
 
 
 pyauto.inject_clients()

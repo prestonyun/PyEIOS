@@ -15,7 +15,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with pyautoeios.  If not, see <https://www.gnu.org/licenses/>.
 
-import pyautoeios as pyauto
+import src.pyautoeios as pyauto
 
 from src.pyautoeios._internal import constants
 from src.pyautoeios._internal import hooks
