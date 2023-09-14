@@ -18,6 +18,7 @@
 import random
 import sys
 import time
+import math
 from typing import Tuple
 
 import pyautogui
@@ -27,6 +28,12 @@ from src.pyautoeios._internal import hooks
 from src.pyautoeios._internal.rs_actor import base_x, base_y
 from src.pyautoeios._internal.rs_local_player import RSLocalPlayer
 from src.pyautoeios.eios import EIOS
+
+SINE = []
+COSINE = []
+for i in range(2048):
+    SINE.append(int(65536 * math.sin(i * 0.0030679615)))
+    COSINE.append(int(65536 * math.cos(i * 0.0030679615)))
 
 _STATES = {
     (0, 10 , False): "WELCOME_SCREEN",
@@ -277,13 +284,46 @@ def get_complex_state(eios: EIOS):
 def me(eios: EIOS) -> RSLocalPlayer:
     return RSLocalPlayer(eios)
 
+def orientation(p, q, r):
+    """
+    To find the orientation of an ordered triplet (p, q, r).
+    Returns:
+    0 : Collinear points
+    1 : Clockwise points
+    2 : Counterclockwise
+    """
+    val = (q[1] - p[1]) * (r[0] - q[0]) - (q[0] - p[0]) * (r[1] - q[1])
+    if val == 0:
+        return 0
+    return 1 if val > 0 else 2
 
+def jarvis_march(x_points, y_points):
+    n = len(x_points)
+    if n < 3:
+        # Convex hull is not possible with less than 3 points
+        return
 
-# i = 0
-# prev_complex_state = None
-# while 1 < 10000000:
-#     i += 1
-#     complex_state = get_complex_state(_client)
-#     if complex_state != prev_complex_state:
-#         print(f"{i = }, {complex_state = }")
-#     prev_complex_state = complex_state
+    points = list(zip(x_points, y_points))
+
+    # Start with the leftmost point
+    l = min(range(n), key=lambda i: points[i])
+
+    hull = []
+    p = l
+    while True:
+        hull.append(points[p])
+
+        # Search for a point 'q' such that orientation(p, x, q) is
+        # counterclockwise for all points 'x'.
+        q = (p + 1) % n
+        for i in range(n):
+            if orientation(points[p], points[i], points[q]) == 2:
+                q = i
+
+        p = q
+
+        # If we're back to the starting point, break
+        if p == l:
+            break
+
+    return hull

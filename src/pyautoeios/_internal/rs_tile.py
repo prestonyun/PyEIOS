@@ -19,7 +19,7 @@
 # i.e in in RSTile to annotate a return type of RSTile.
 # see this thread: https://stackoverflow.com/a/33533514/4188287
 from __future__ import annotations
-
+import math
 from pyscreeze import Point
 
 from src.pyautoeios._internal import hooks
@@ -29,9 +29,11 @@ from src.pyautoeios._internal.rs_structures import RSType
 
 
 class RSTile(RSType):
-    def __init__(self, eios: EIOS, x: int, y: int):
+    def __init__(self, eios: EIOS, x: int, y: int, z: int = None):
         self.x = x
         self.y = y
+        self.z = z
+        self.scope = "local"
         super().__init__(eios=eios, ref=None)
 
     def region_id(self) -> int:
@@ -46,6 +48,34 @@ class RSTile(RSType):
         x = static.base_x(self.eios) + self.x // 128
         y = static.base_y(self.eios) + self.y // 128
         return RSTile(self.eios, x, y)
+    
+    def localToCanvas(self) -> Point:
+        if self.scope != "local":
+            raise ValueError("tile must be local")
+        cameraX = self.eios.get_int(None, hooks.CLIENT_CAMERAX)
+        cameraY = self.eios.get_int(None, hooks.CLIENT_CAMERAY)
+        cameraZ = self.eios.get_int(None, hooks.CLIENT_CAMERAZ)
+        cameraPitch = self.eios.get_int(None, hooks.CLIENT_CAMERAPITCH)
+        cameraYaw = self.eios.get_int(None, hooks.CLIENT_CAMERAYAW)
+        pitchSin = static.SINE[cameraPitch]
+        pitchCos = static.COSINE[cameraPitch]
+        yawSin = static.SINE[cameraYaw]
+        yawCos = static.COSINE[cameraYaw]
+
+        _x = self.x - cameraX
+        _y = self.y - cameraY
+        _z = self.z - cameraZ if self.z else 0
+
+        x1 = _x * yawCos + _y * yawSin >> 16
+        y1 = _y * yawCos - _x * yawSin >> 16
+        y2 = _z * pitchCos - y1 * pitchSin >> 16
+        z1 = y1 * pitchCos + _z * pitchSin >> 16
+
+        if z1 >= 50:
+            scale = self.eios.get_int(None, hooks.CLIENT_VIEWPORTSCALE)
+            pointX = self.eios.get_int(None, hooks.CLIENT_VIEWPORTWIDTH) // 2 + x1 * scale // z1
+            pointY = self.eios.get_int(None, hooks.CLIENT_VIEWPORTHEIGHT) // 2 + y2 * scale // z1
+            return Point(pointX, pointY)
 
     def local_to_world_tile(self) -> RSTile:
         raise NotImplementedError
