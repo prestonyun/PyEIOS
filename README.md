@@ -1,3 +1,5 @@
+Copy of https://github.com/BrettMoan/pyautoeios
+
 # pyautoeios
 
 Python bindings for `libRemoteInput` library and port of the lape `Reflection` package from [Brandon-T/Reflection][reflection].
