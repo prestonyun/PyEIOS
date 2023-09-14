@@ -59,8 +59,8 @@ def client() -> EIOS:
 # import importlib
 # pyauto = importlib.reload(pyauto)
 # import pyautoeios as pyauto
-# from pyautoeios import pyauto
-# from pyautoeios.eios import EIOS
+# from src.pyautoeios import pyauto
+# from src.pyautoeios.eios import EIOS
 # _client = EIOS()
 # pyauto.pair_client(_client)
 # pyauto.click_existing_user(_client)

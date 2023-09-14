@@ -66,7 +66,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 import numpy as np
 from PIL import Image
 
-from pyautoeios.eios import EIOS
+from src.pyautoeios.eios import EIOS
 
 eios_obj = None
 """Global Shared Memory pointer used to interact with the RemoteLib"""

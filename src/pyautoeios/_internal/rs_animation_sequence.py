@@ -21,11 +21,11 @@
 from __future__ import annotations
 from typing import List
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_animated_model import RSAnimatedModel
-from pyautoeios._internal.rs_cache import RSCache
-from pyautoeios._internal.rs_model import RSModel
-from pyautoeios._internal.rs_structures import RSType
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_animated_model import RSAnimatedModel
+from src.pyautoeios._internal.rs_cache import RSCache
+from src.pyautoeios._internal.rs_model import RSModel
+from src.pyautoeios._internal.rs_structures import RSType
 
 
 class RSAnimationSequence(RSType):

@@ -15,10 +15,10 @@
 #    You should have received a copy of the GNU General Public License
 #    along with pyautoeios.  If not, see <https://www.gnu.org/licenses/>.
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_iterable_hash_table import RSIterableHashTable
-from pyautoeios._internal.rs_queue import RSQueue
-from pyautoeios._internal.rs_structures import RSType
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_iterable_hash_table import RSIterableHashTable
+from src.pyautoeios._internal.rs_queue import RSQueue
+from src.pyautoeios._internal.rs_structures import RSType
 
 
 class RSCache(RSType):

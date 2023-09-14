@@ -16,14 +16,14 @@
 #    along with pyautoeios.  If not, see <https://www.gnu.org/licenses/>.
 
 # import ctypes
-from pyautoeios._internal import hooks
+from src.pyautoeios._internal import hooks
 
 import pyautoeios as pyauto
-from pyautoeios._internal.rs_model import RSModel
+from src.pyautoeios._internal.rs_model import RSModel
 
 
 
-# from pyautoeios.eios import (
+# from src.pyautoeios.eios import (
 #     EIOS, OBJECT,
 #     # SIZE, CHAR, BYTE, BOOL, SHORT, INT, LONG, FLOAT, DOUBLE, STRING,
 # )

@@ -17,9 +17,9 @@
 
 from typing import List
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_node import RSNode
-from pyautoeios._internal.rs_structures import RSType
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_node import RSNode
+from src.pyautoeios._internal.rs_structures import RSType
 
 
 class RSHashTable(RSType):

@@ -19,11 +19,11 @@ from typing import List
 
 from pyscreeze import Point
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_actor import RSActor
-from pyautoeios._internal.rs_model import RSModel
-from pyautoeios._internal.rs_npc_definition import RSNPCDefinition
-from pyautoeios._internal.rs_animated_model import RSAnimatedModel
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_actor import RSActor
+from src.pyautoeios._internal.rs_model import RSModel
+from src.pyautoeios._internal.rs_npc_definition import RSNPCDefinition
+from src.pyautoeios._internal.rs_animated_model import RSAnimatedModel
 
 
 class RSNPC(RSActor):

@@ -14,12 +14,12 @@
 #
 #    You should have received a copy of the GNU General Public License
 #    along with pyautoeios.  If not, see <https://www.gnu.org/licenses/>.
-from pyautoeios._internal import hooks
+from src.pyautoeios._internal import hooks
 
-from pyautoeios._internal.rs_animation_sequence import RSAnimationSequence
-from pyautoeios._internal.rs_client import RSClient
-from pyautoeios._internal.rs_structures import RSType
-from pyautoeios._internal.rs_tile import RSTile
+from src.pyautoeios._internal.rs_animation_sequence import RSAnimationSequence
+from src.pyautoeios._internal.rs_client import RSClient
+from src.pyautoeios._internal.rs_structures import RSType
+from src.pyautoeios._internal.rs_tile import RSTile
 
 
 class RSAnimableNode(RSType):

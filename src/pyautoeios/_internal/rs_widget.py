@@ -23,16 +23,16 @@ from typing import List, TypeVar
 
 from pyscreeze import Box, Point
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal import static
-from pyautoeios._internal.constants import RWidget
-from pyautoeios.eios import (
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal import static
+from src.pyautoeios._internal.constants import RWidget
+from src.pyautoeios.eios import (
     EIOS, OBJECT,
     # SIZE, CHAR, BYTE, BOOL, SHORT, INT, LONG, FLOAT, DOUBLE, STRING,
 )
 
 
-from pyautoeios._internal.rs_structures import RSType, get_rs_int_array
+from src.pyautoeios._internal.rs_structures import RSType, get_rs_int_array
 
 
 WidgetList = List["RSWidget"]

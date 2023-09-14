@@ -20,10 +20,10 @@
 # see this thread: https://stackoverflow.com/a/33533514/4188287
 from __future__ import annotations
 
-from pyautoeios._internal import hooks
-from pyautoeios.eios import EIOS
-from pyautoeios._internal.rs_player import RSPlayer
-from pyautoeios._internal.rs_structures import RSIntArray
+from src.pyautoeios._internal import hooks
+from src.pyautoeios.eios import EIOS
+from src.pyautoeios._internal.rs_player import RSPlayer
+from src.pyautoeios._internal.rs_structures import RSIntArray
 
 class RSLocalPlayer(RSPlayer):
 

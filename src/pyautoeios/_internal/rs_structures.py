@@ -19,7 +19,7 @@ import ctypes
 from io import StringIO
 from html.parser import HTMLParser
 
-from pyautoeios.eios import (
+from src.pyautoeios.eios import (
     EIOS,
     SIZE,
     CHAR,
@@ -33,7 +33,7 @@ from pyautoeios.eios import (
     STRING,
     OBJECT,
 )
-from pyautoeios.eios_meta import Type
+from src.pyautoeios.eios_meta import Type
 
 
 class MLStripper(HTMLParser):

@@ -15,8 +15,8 @@
 #    You should have received a copy of the GNU General Public License
 #    along with pyautoeios.  If not, see <https://www.gnu.org/licenses/>.
 """Test pyautoeios.eios module."""
-from pyautoeios.eios import EIOS
-from pyautoeios._internal.rs_client import RSClient
+from src.pyautoeios.eios import EIOS
+from src.pyautoeios._internal.rs_client import RSClient
 
 # pylint: disable=protected-access, missing-function-docstring
 

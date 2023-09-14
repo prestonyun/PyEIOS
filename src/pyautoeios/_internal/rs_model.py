@@ -17,8 +17,8 @@
 
 from typing import List, Tuple
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_structures import RSType, get_rs_int_array
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_structures import RSType, get_rs_int_array
 
 
 class RSModel(RSType):

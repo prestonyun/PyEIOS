@@ -22,13 +22,13 @@ from __future__ import annotations
 from enum import Enum, auto
 from typing import List, Optional, overload, Union
 
-from pyautoeios._internal import hooks
-from pyautoeios.eios import EIOS
-from pyautoeios._internal import static
-from pyautoeios._internal.rs_structures import RSType, get_rs_int_array, get_rs_string_array
-from pyautoeios._internal.rs_cache import RSCache
-from pyautoeios._internal.rs_model import RSModel
-from pyautoeios._internal.rs_animated_model import RSAnimatedModel
+from src.pyautoeios._internal import hooks
+from src.pyautoeios.eios import EIOS
+from src.pyautoeios._internal import static
+from src.pyautoeios._internal.rs_structures import RSType, get_rs_int_array, get_rs_string_array
+from src.pyautoeios._internal.rs_cache import RSCache
+from src.pyautoeios._internal.rs_model import RSModel
+from src.pyautoeios._internal.rs_animated_model import RSAnimatedModel
 
 
 class RSObjectType(Enum):

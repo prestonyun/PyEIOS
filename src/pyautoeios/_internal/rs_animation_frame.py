@@ -21,9 +21,9 @@
 from __future__ import annotations
 from typing import List
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_animation import RSAnimation
-from pyautoeios._internal.rs_structures import RSType
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_animation import RSAnimation
+from src.pyautoeios._internal.rs_structures import RSType
 
 
 class RSAnimationFrame(RSType):

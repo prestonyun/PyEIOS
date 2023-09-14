@@ -17,13 +17,13 @@
 
 
 import pyautoeios as pyauto
-from pyautoeios._internal.rs_client import RSClient
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_structures import RSObjectArray
-from pyautoeios._internal.rs_npc import RSNPC
+from src.pyautoeios._internal.rs_client import RSClient
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_structures import RSObjectArray
+from src.pyautoeios._internal.rs_npc import RSNPC
 
 import pyautoeios as pyauto
-from pyautoeios._internal.rs_player import me
+from src.pyautoeios._internal.rs_player import me
 
 pyauto.inject_clients()
 client = pyauto.clients[0]

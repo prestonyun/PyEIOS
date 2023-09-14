@@ -1,7 +1,7 @@
 import os
 from getpass import getpass
 
-import pyautoeios as pyauto
+import src.pyautoeios as pyauto
 
 _client = pyauto.eios.EIOS()
 pyauto.pair_client(_client)

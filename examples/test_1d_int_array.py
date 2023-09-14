@@ -16,10 +16,10 @@
 #    along with pyautoeios.  If not, see <https://www.gnu.org/licenses/>.
 
 # import ctypes
-# from pyautoeios._internal import hooks
+# from src.pyautoeios._internal import hooks
 
 import pyautoeios as pyauto
-# from pyautoeios._internal.rs_client import RSClient
+# from src.pyautoeios._internal.rs_client import RSClient
 
 pyauto.inject_clients()
 with pyauto.clients.pop(0) as client:

@@ -21,9 +21,9 @@
 from __future__ import annotations
 
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_cache import RSCache
-from pyautoeios._internal.rs_node import RSNode
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_cache import RSCache
+from src.pyautoeios._internal.rs_node import RSNode
 
 
 class RSWidgetNode(RSNode):

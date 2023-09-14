@@ -15,9 +15,9 @@
 #    You should have received a copy of the GNU General Public License
 #    along with pyautoeios.  If not, see <https://www.gnu.org/licenses/>.
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_structures import RSType
-from pyautoeios._internal.rs_item_definition import RSItemDefinition
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_structures import RSType
+from src.pyautoeios._internal.rs_item_definition import RSItemDefinition
 
 
 class RSItem(RSType):

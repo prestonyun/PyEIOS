@@ -21,8 +21,8 @@
 from __future__ import annotations
 from typing import List
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_structures import RSType
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_structures import RSType
 
 
 class RSAnimationSkeleton(RSType):

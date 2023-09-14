@@ -18,19 +18,19 @@
 from typing import List, Tuple
 
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_region import RSRegion
-from pyautoeios._internal.rs_model import RSModel
-from pyautoeios._internal.rs_cache import RSCache
-from pyautoeios._internal.rs_structures import (
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_region import RSRegion
+from src.pyautoeios._internal.rs_model import RSModel
+from src.pyautoeios._internal.rs_cache import RSCache
+from src.pyautoeios._internal.rs_structures import (
     RSType,
     RSIntArray,
     RSStringArray,
     get_rs_int_array,
     get_rs_string_array,
 )
-from pyautoeios._internal.rs_animated_model import RSAnimatedModel
-from pyautoeios._internal.rs_animation_sequence import RSAnimationSequence
+from src.pyautoeios._internal.rs_animated_model import RSAnimatedModel
+from src.pyautoeios._internal.rs_animation_sequence import RSAnimationSequence
 
 
 class RSNPCDefinition(RSType):

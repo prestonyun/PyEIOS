@@ -17,13 +17,13 @@
 
 from typing import List
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_node import RSNode
-from pyautoeios._internal.rs_cache import RSCache
-from pyautoeios._internal.rs_model import RSModel
-from pyautoeios._internal.rs_structures import RSType, get_rs_int_array
-from pyautoeios._internal.rs_animated_model import RSAnimatedModel
-from pyautoeios._internal.rs_animation_sequence import RSAnimationSequence
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_node import RSNode
+from src.pyautoeios._internal.rs_cache import RSCache
+from src.pyautoeios._internal.rs_model import RSModel
+from src.pyautoeios._internal.rs_structures import RSType, get_rs_int_array
+from src.pyautoeios._internal.rs_animated_model import RSAnimatedModel
+from src.pyautoeios._internal.rs_animation_sequence import RSAnimationSequence
 
 
 class RSPlayerDefinition(RSType):

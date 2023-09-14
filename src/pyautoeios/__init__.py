@@ -23,12 +23,12 @@
 from typing import List
 import random
 
-from pyautoeios import eios
-from pyautoeios import hexcodes
-from pyautoeios._internal import static
-from pyautoeios._internal import hooks
-from pyautoeios._internal import _pyscreeze_remoteinput_patch
-from pyautoeios._internal import _pyautogui_remoteinput_patch
+from src.pyautoeios import eios
+from src.pyautoeios import hexcodes
+from src.pyautoeios._internal import static
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal import _pyscreeze_remoteinput_patch
+from src.pyautoeios._internal import _pyautogui_remoteinput_patch
 
 import pyautogui as _gui
 
@@ -38,7 +38,7 @@ _gui.pyscreeze.screenshot = _pyscreeze_remoteinput_patch._screenshot_remoteinput
 
 
 if _gui.pyscreeze.useOpenCV:
-    from pyautoeios._internal import _pyscreeze_cv2_patch
+    from src.pyautoeios._internal import _pyscreeze_cv2_patch
 
     _gui.pyscreeze._load_cv2 = _pyscreeze_cv2_patch._load_cv2
     _gui.pyscreeze._extract_alpha_cv2 = _pyscreeze_cv2_patch._extract_alpha_cv2

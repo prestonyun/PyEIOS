@@ -17,12 +17,12 @@
 
 import pyautoeios as pyauto
 
-from pyautoeios._internal import constants
-from pyautoeios._internal import hooks
-from pyautoeios._internal import static
+from src.pyautoeios._internal import constants
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal import static
 
-from pyautoeios.eios import OBJECT
-from pyautoeios._internal.rs_widget import RSWidget
+from src.pyautoeios.eios import OBJECT
+from src.pyautoeios._internal.rs_widget import RSWidget
 
 client = pyauto.eios.EIOS()
 

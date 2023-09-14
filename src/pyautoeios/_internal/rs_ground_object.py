@@ -18,9 +18,9 @@
 import collections
 from typing import List
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_tile import RSTile
-from pyautoeios._internal.rs_structures import RSType
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_tile import RSTile
+from src.pyautoeios._internal.rs_structures import RSType
 
 RSGroundItem = collections.namedtuple("RSGroundItem", "oid stack_size tile")
 

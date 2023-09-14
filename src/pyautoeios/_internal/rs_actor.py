@@ -15,11 +15,11 @@
 #    You should have received a copy of the GNU General Public License
 #    along with pyautoeios.  If not, see <https://www.gnu.org/licenses/>.
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_structures import RSType
-from pyautoeios._internal.rs_tile import RSTile
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_structures import RSType
+from src.pyautoeios._internal.rs_tile import RSTile
 
-from pyautoeios.eios import EIOS
+from src.pyautoeios.eios import EIOS
 
 def base_x(eios: EIOS) -> int:
     return eios.get_int(None, hooks.CLIENT_BASEX)

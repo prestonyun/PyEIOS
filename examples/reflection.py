@@ -17,11 +17,11 @@
 
 import ctypes
 import pyautoeios as pyauto
-from pyautoeios._internal import hooks
+from src.pyautoeios._internal import hooks
 
-from pyautoeios._internal.static import me
+from src.pyautoeios._internal.static import me
 
-from pyautoeios._internal.rs_client import RSClient
+from src.pyautoeios._internal.rs_client import RSClient
 
 pyauto.inject_clients()
 client = pyauto.clients[0]

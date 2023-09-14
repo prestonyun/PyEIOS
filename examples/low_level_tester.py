@@ -19,8 +19,8 @@ import os
 import getpass
 import random
 import time
-from pyautoeios.eios import EIOS
-from pyautoeios.hexcodes import VK_ESC, VK_LBUTTON
+from src.pyautoeios.eios import EIOS
+from src.pyautoeios.hexcodes import VK_ESC, VK_LBUTTON
 
 print("injecting into client")
 # Create instance of Remote Input

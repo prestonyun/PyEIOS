@@ -64,8 +64,8 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 from pyautogui import isShiftCharacter
 from pyautogui._pyautogui_win import keyboardMapping
-from pyautoeios.eios import EIOS
-from pyautoeios.hexcodes import VK_LBUTTON, VK_RBUTTON, VK_MBUTTON
+from src.pyautoeios.eios import EIOS
+from src.pyautoeios.hexcodes import VK_LBUTTON, VK_RBUTTON, VK_MBUTTON
 
 eios_obj = None
 """Global Shared Memory pointer used to interact with the RemoteLib"""

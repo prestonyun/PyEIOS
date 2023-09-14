@@ -21,9 +21,9 @@
 from __future__ import annotations
 from typing import List
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_cache import RSCache
-from pyautoeios._internal.rs_structures import RSType, get_rs_string_array
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_cache import RSCache
+from src.pyautoeios._internal.rs_structures import RSType, get_rs_string_array
 
 
 class RSItemDefinition(RSType):

@@ -19,14 +19,14 @@ from typing import List
 
 from pyscreeze import Box, Point
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal import static
-from pyautoeios.eios import EIOS
-from pyautoeios._internal.rs_npc import RSNPC
-from pyautoeios._internal.rs_cache import RSCache
-from pyautoeios._internal.rs_player import RSPlayer
-from pyautoeios._internal.rs_region import RSRegion
-from pyautoeios._internal.rs_structures import (
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal import static
+from src.pyautoeios.eios import EIOS
+from src.pyautoeios._internal.rs_npc import RSNPC
+from src.pyautoeios._internal.rs_cache import RSCache
+from src.pyautoeios._internal.rs_player import RSPlayer
+from src.pyautoeios._internal.rs_region import RSRegion
+from src.pyautoeios._internal.rs_structures import (
     RSType,
     RSObjectArray,
     get_rs_int_array,

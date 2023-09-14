@@ -22,10 +22,10 @@ from __future__ import annotations
 
 from pyscreeze import Point
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal import static
-from pyautoeios.eios import EIOS
-from pyautoeios._internal.rs_structures import RSType
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal import static
+from src.pyautoeios.eios import EIOS
+from src.pyautoeios._internal.rs_structures import RSType
 
 
 class RSTile(RSType):

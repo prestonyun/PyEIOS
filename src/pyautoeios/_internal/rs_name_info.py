@@ -20,8 +20,8 @@
 # see this thread: https://stackoverflow.com/a/33533514/4188287
 from __future__ import annotations
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_structures import RSType
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_structures import RSType
 
 
 class RSNameInfo(RSType):

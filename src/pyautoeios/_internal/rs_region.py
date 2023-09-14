@@ -17,10 +17,10 @@
 
 from typing import List, TypeVar
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_object import RSObject
-from pyautoeios._internal.rs_structures import RSType
-from pyautoeios._internal.rs_scene_tile import RSSceneTile
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_object import RSObject
+from src.pyautoeios._internal.rs_structures import RSType
+from src.pyautoeios._internal.rs_scene_tile import RSSceneTile
 
 
 Scene = List[List[RSSceneTile]]

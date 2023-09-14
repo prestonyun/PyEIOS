@@ -23,17 +23,17 @@ from typing import Tuple
 import pyautogui
 from pyscreeze import Box
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_actor import base_x, base_y
-from pyautoeios._internal.rs_local_player import RSLocalPlayer
-from pyautoeios.eios import EIOS
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_actor import base_x, base_y
+from src.pyautoeios._internal.rs_local_player import RSLocalPlayer
+from src.pyautoeios.eios import EIOS
 
 _STATES = {
     (0, 10 , False): "WELCOME_SCREEN",
     (0, 10 , True): "WELCOME_SCREEN",
     (0, 30 , False): "TIMEOUT1",
-    (2, 10, True): "ENTER_USERNAME",
-    (2, 10, False): "ENTER_USERNAME",
+    (0, 10, True): "ENTER_USERNAME",
+    (0, 10, False): "ENTER_USERNAME",
     (2, 20, False): "LOADING_PLEASE_WAIT",
     (2, 20, True): "LOADING",
     (2, 25 , False): "MOVING_REGIONS",
@@ -206,6 +206,7 @@ def login(eios: EIOS, username:str, password: str) -> None:
         click_disconnected(eios)
         time.sleep(0.5)
         while _state not in ("WELCOME_SCREEN", "ENTER_USERNAME"):
+            #print(_state)
             _state = get_complex_state(eios)
             time.sleep(0.5)
 
@@ -213,6 +214,7 @@ def login(eios: EIOS, username:str, password: str) -> None:
         click_existing_user(eios)
         time.sleep(0.5)
         while _state != "ENTER_USERNAME":
+            #print(_state)
             _state = get_complex_state(eios)
             time.sleep(.5)
 
@@ -237,6 +239,7 @@ def login(eios: EIOS, username:str, password: str) -> None:
 
         # if delete_username or False
         while _state != "CLICK_TO_PLAY":
+            #print(_state)
             _state = get_complex_state(eios)
             time.sleep(.5)
             response1 = eios.get_string(None, hooks.LOGIN_RESPONSE1)
@@ -254,6 +257,7 @@ def login(eios: EIOS, username:str, password: str) -> None:
     if _state == "CLICK_TO_PLAY":
         click_login_button(eios)
         while _state != "NORMAL":
+            #print(_state)
             _state = get_complex_state(eios)
             time.sleep(.5)
 
@@ -264,8 +268,9 @@ def get_complex_state(eios: EIOS):
     _loading = _is_client_loading(eios)
     _state = _STATES.get((_login_state, _game_state, _loading), None)
     if not _state:
-        # print(f"{_login_state = }, {_game_state = }, {_loading = }")
+        print(f"{_login_state = }, {_game_state = }, {_loading = }")
         return "UNKNOWN_STATE"
+    print(f"{_login_state = }, {_game_state = }, {_loading = }")
     return _state
 
 

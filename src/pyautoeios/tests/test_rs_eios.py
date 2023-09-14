@@ -19,7 +19,7 @@
 import os
 
 import pyautoeios as pyauto
-from pyautoeios.hexcodes import VK_ESC, VK_LBUTTON
+from src.pyautoeios.hexcodes import VK_ESC, VK_LBUTTON
 
 # pylint: disable=protected-access, missing-function-docstring
 

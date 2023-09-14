@@ -422,7 +422,7 @@ class EIOSMetaClass(type):
     @property
     def _reflect_get_eios(cls) -> Callable:
         """EIOS* Reflect_GetEIOS(std::int32_t pid) noexcept;"""
-        fn = getattr(cls.wdll, "Reflect_GetEIOS")
+        fn = getattr(cls.wdll, "EIOS_From_PID")
         fn.restype = EIOSPtr
         fn.argtypes = [PID]
         return fn

@@ -27,16 +27,18 @@ Resources:
 
 """
 import atexit
+import win32process
 import ctypes as ct
+import pygetwindow as gw
 from typing import Tuple, List
 import time
 
 import psutil
 
-from pyautoeios._internal.hooks import THook
-from pyautoeios.eios_meta import EIOSMetaClass, EIOSPtr, JObject, JArray, Type
+from src.pyautoeios._internal.hooks import THook
+from src.pyautoeios.eios_meta import EIOSMetaClass, EIOSPtr, JObject, JArray, Type
 
-CLIENTS = ["JagexLauncher.exe", "RuneLite.exe", "OpenOSRS.exe"]
+CLIENTS = ["JagexLauncher.exe", "RuneLite", "Java.exe"]
 
 SIZE = Type("size", -1, ct.c_size_t, ct.sizeof(ct.c_size_t))
 CHAR = Type("char", 0, ct.c_char, ct.sizeof(ct.c_char))
@@ -81,13 +83,7 @@ class EIOS(object, metaclass=EIOSMetaClass):
         # already bound to a client. assume any pid
         # not alreadyu in our class variable as an "unbound" pid.
         if not pid:
-            pids = self._get_client_pids()
-            for _pid in pids:
-                if _pid not in self._clients.keys():
-                    pid = _pid
-                    break
-            if pid is None:
-                raise IOError(f"All {len(pids)} clients already bound to.")
+            pid = self._get_client_pids()
 
         # if an explict pid is passed, still check for it.
         elif pid in self._clients.keys():
@@ -106,11 +102,8 @@ class EIOS(object, metaclass=EIOSMetaClass):
 
     @staticmethod
     def _get_client_pids() -> List[int]:
-        return [
-            process.info["pid"]
-            for process in psutil.process_iter(["pid", "name"])
-            if process.info["name"] in CLIENTS
-        ]
+        thread_id, process_id = win32process.GetWindowThreadProcessId(gw.getWindowsWithTitle('RuneLite')[0]._hWnd)
+        return process_id
 
     def _cleanup(self):
         """Free object pointers during garbage collection.

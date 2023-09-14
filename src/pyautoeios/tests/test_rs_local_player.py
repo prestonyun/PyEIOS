@@ -17,7 +17,7 @@
 import os
 from getpass import getpass
 
-from pyautoeios._internal.static import me
+from src.pyautoeios._internal.static import me
 
 # pylint: disable=protected-access, missing-function-docstring
 

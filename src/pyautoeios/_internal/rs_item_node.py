@@ -16,9 +16,9 @@
 #    along with pyautoeios.  If not, see <https://www.gnu.org/licenses/>.
 
 from typing import List
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_hash_table import RSHashTable
-from pyautoeios._internal.rs_structures import RSType, get_rs_int_array
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_hash_table import RSHashTable
+from src.pyautoeios._internal.rs_structures import RSType, get_rs_int_array
 
 
 class RSItemNode(RSType):

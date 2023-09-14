@@ -20,13 +20,13 @@
 # see this thread: https://stackoverflow.com/a/33533514/4188287
 from __future__ import annotations
 
-from pyautoeios._internal import hooks
-from pyautoeios._internal.rs_animated_model import RSAnimatedModel
-from pyautoeios._internal.rs_model import RSModel
-from pyautoeios._internal.rs_name_info import RSNameInfo
-from pyautoeios._internal.rs_player_definition import RSPlayerDefinition
-from pyautoeios._internal.rs_actor import RSActor
-from pyautoeios._internal.rs_tile import RSTile
+from src.pyautoeios._internal import hooks
+from src.pyautoeios._internal.rs_animated_model import RSAnimatedModel
+from src.pyautoeios._internal.rs_model import RSModel
+from src.pyautoeios._internal.rs_name_info import RSNameInfo
+from src.pyautoeios._internal.rs_player_definition import RSPlayerDefinition
+from src.pyautoeios._internal.rs_actor import RSActor
+from src.pyautoeios._internal.rs_tile import RSTile
 
 class RSPlayer(RSActor):
     def name(self) -> str:
