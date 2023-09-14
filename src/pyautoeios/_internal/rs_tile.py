@@ -64,17 +64,37 @@ class RSTile(RSType):
 
         _x = self.x - cameraX
         _y = self.y - cameraY
-        _z = self.z - cameraZ if self.z else 0
+        _z = self.z - cameraZ if self.z else 0 - cameraZ
 
         x1 = _x * yawCos + _y * yawSin >> 16
         y1 = _y * yawCos - _x * yawSin >> 16
         y2 = _z * pitchCos - y1 * pitchSin >> 16
         z1 = y1 * pitchCos + _z * pitchSin >> 16
 
+        scale = self.eios.get_int(None, hooks.CLIENT_VIEWPORTSCALE)
+
+        viewport_half = self.eios.get_int(None, hooks.CLIENT_VIEWPORTHEIGHT) // 2
+        y2_scaled = y2 * scale
+        y2_scaled_divided = y2_scaled // z1
+        pointY = viewport_half + y2_scaled_divided
+
+        print("y1", y1)
+        print("cos", pitchCos)
+        print("sin", pitchSin)
+        print('y2: ', y2)
+        print("scale:", scale)
+
+        print("viewport_half:", viewport_half)
+        print("y2_scaled:", y2_scaled)
+        print("y2_scaled_divided:", y2_scaled_divided)
+        print("pointY:", pointY)
+
+
         if z1 >= 50:
             scale = self.eios.get_int(None, hooks.CLIENT_VIEWPORTSCALE)
-            pointX = self.eios.get_int(None, hooks.CLIENT_VIEWPORTWIDTH) // 2 + x1 * scale // z1
-            pointY = self.eios.get_int(None, hooks.CLIENT_VIEWPORTHEIGHT) // 2 + y2 * scale // z1
+            pointX = (self.eios.get_int(None, hooks.CLIENT_VIEWPORTWIDTH) // 2) + (x1 * scale // z1)
+            pointY = int(self.eios.get_int(None, hooks.CLIENT_VIEWPORTHEIGHT) / 2) + int((y2 * scale) / z1)
+
             return Point(pointX, pointY)
         else:
             return Point(-1, -1)

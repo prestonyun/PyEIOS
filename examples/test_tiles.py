@@ -1,15 +1,19 @@
+import time
+from src.pyautoeios._internal.rs_structures import get_rs_object_array
+from src.pyautoeios.eios import EIOS
 import src.pyautoeios as pyauto
 from src.pyautoeios._internal.rs_client import RSClient
-
+from src.pyautoeios._internal import hooks
 
 pyauto.inject_clients()
-with pyauto.clients.pop(0) as client:
-    pyauto.pair_client(client)
-    local_player = pyauto.static.me(client)
+client = pyauto.clients[0]
+pyauto.pair_client(client)
 
-    ltile = local_player.local_tile()
-    tile = local_player.tile()
-    print(ltile.x, ltile.y)
-    print(tile.x, tile.y)
-    print(tile.localToCanvas())
-    print(ltile.localToCanvas())
+rs_client = RSClient(client, None)
+reflect = EIOS()
+local_player = pyauto.static.me(client)
+scene = get_rs_object_array(reflect, None, hooks.REGION_SCENETILES)
+print(scene)
+
+ltile = local_player.local_tile()
+tile = local_player.tile()
