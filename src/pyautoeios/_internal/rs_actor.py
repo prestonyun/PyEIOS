@@ -45,8 +45,8 @@ class RSActor(RSType):
         return RSTile(eios=self.eios, x=self.local_x(), y=self.local_y())
 
     def tile(self) -> RSTile:
-        x = base_x(self.eios) + self.local_x() % 128
-        y = base_y(self.eios) + self.local_y() % 128
+        x = base_x(self.eios) + ((self.local_x() % 0x100000000) >> 7)
+        y = base_y(self.eios) + ((self.local_y() % 0x100000000) >> 7)
         return RSTile(eios=self.eios, x=x, y=y)
 
     def animation_id(self) -> int:

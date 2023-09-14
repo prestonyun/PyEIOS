@@ -37,9 +37,15 @@ class RSSceneTile(RSType):
         return RSSceneTile(self.eios, _ref)
 
     def game_object(self) -> RSObject:
+        
         raise NotImplementedError
 
     def game_objects(self) -> List[RSObject]:
+        res = []
+        _ref = self.eios.get_array(self.ref, hooks.SCENETILE_GAMEOBJECTS)
+        print(_ref)
+        
+
         raise NotImplementedError
 
     def wall_decoration(self) -> RSObject:

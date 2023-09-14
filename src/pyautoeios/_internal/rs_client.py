@@ -18,6 +18,7 @@
 from typing import List
 
 from pyscreeze import Point
+from src.pyautoeios._internal.rs_object import RSObject
 from src.pyautoeios._internal.geometry import Rectangle
 
 from src.pyautoeios._internal import hooks
@@ -96,6 +97,17 @@ class RSClient(RSType):
 
     def player_count(self) -> int:
         return self.eios.get_int(None, hooks.CLIENT_PLAYERCOUNT)
+    
+    def all_objects(self):
+        objects_ref, objects_size = self.eios.get_array_with_size(
+            None, hooks.REGION_INTERACTABLEOBJECTS
+        )
+        if objects_ref:
+            #indices = self.object_indices()
+            #shrunk = [i for i in indices if i]
+            objects = RSObjectArray(self.eios, objects_ref, objects_size) #, indices=shrunk)
+            return [RSObject(self.eios, obj_ref) for obj_ref in objects.elements if obj_ref]
+    
 
     def all_npcs(self):
         npcs_ref, npcs_size = self.eios.get_array_with_size(

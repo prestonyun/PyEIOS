@@ -29,30 +29,7 @@ pyauto.inject_clients()
 client = pyauto.clients[0]
 pyauto.pair_client(client)
 rs_client = RSClient(client, None)
-# indices = rs_client.npc_indices()
-# shrunk = [i for i in indices if i]
-# print(shrunk)
-# npcs_ref, npcs_size = client.get_array_with_size(None, hooks.CLIENT_LOCALNPCS)
-# print(f"{npcs_ref = }, {npcs_size = }")
-# npcs = RSObjectArray(client, npcs_ref, npcs_size, indices=shrunk)
-# print(f"{npcs = }, {npcs.elements = }")
-# client.get_array_indices()
-# result_type = ctypes.c_void_p * len(shrunk)
-# foo = ctypes.cast(npcs._elements, ctypes.POINTER(result_type))
-# print(f"{foo = } {foo.contents = } {foo.contents[:] = }")
-# npc_array = []
-# for i in foo.contents[:]:
-#     if i:
-#         print(f"{i = }")
-#         npc = RSNPC(client, i)
-#         print(f"{npc = }")
-#         definition = npc.definition()
-#         print(f"{definition = }")
-#         if definition:
-#             npc_array.append({
-#                 "name": definition.name(),
-#                 "oid" : definition.oid(),
-#             })
+
 npcs = rs_client.all_npcs()
 # npc = npcs[0]
 # definition = npc.definition()

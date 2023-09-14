@@ -76,6 +76,8 @@ class RSTile(RSType):
             pointX = self.eios.get_int(None, hooks.CLIENT_VIEWPORTWIDTH) // 2 + x1 * scale // z1
             pointY = self.eios.get_int(None, hooks.CLIENT_VIEWPORTHEIGHT) // 2 + y2 * scale // z1
             return Point(pointX, pointY)
+        else:
+            return Point(-1, -1)
 
     def local_to_world_tile(self) -> RSTile:
         raise NotImplementedError

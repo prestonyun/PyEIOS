@@ -110,7 +110,7 @@ class RSObject(RSType):
         return RSTile(self.eios, x, y)
 
     def definition(self) -> RSObjectDefinition:
-        raise NotImplementedError
+        return RSObjectDefinition(self.eios, self.oid())
 
     def renderable(self) -> RSEntity:
         raise NotImplementedError
