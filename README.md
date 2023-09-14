@@ -1,4 +1,4 @@
-Copy of https://github.com/BrettMoan/pyautoeios
+Forked from https://github.com/BrettMoan/pyautoeios
 
 # pyautoeios
 
