@@ -55,8 +55,7 @@ clients = []
 def inject_clients() -> List[eios.EIOS]:
     """Create all the EIOS clients."""
     try:
-        while True:
-            clients.append(eios.EIOS())
+        clients.append(eios.EIOS())
     except OSError:
         if len(clients) < 1:
             raise

@@ -16,7 +16,7 @@
 #    along with pyautoeios.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import pyautoeios as pyauto
+import src.pyautoeios as pyauto
 from src.pyautoeios._internal.rs_client import RSClient
 from src.pyautoeios._internal import hooks
 from src.pyautoeios._internal.rs_structures import RSObjectArray

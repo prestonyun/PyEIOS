@@ -75,10 +75,9 @@ class RSIterableHashTable(RSType):
             return None
 
         current_uid = None
-        while True:
-            current_uid = current.uid()
-            if current_uid in (0, -1):
-                return None
-            if current_uid == oid:
-                return current
-            current = current.next()
+        current_uid = current.uid()
+        if current_uid in (0, -1):
+            return None
+        if current_uid == oid:
+            return current
+        current = current.next()
